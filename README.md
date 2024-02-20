@@ -460,6 +460,94 @@ Product
 	Create main method in separate class to store 3 product information in 3 objects and print.
 
 
+================================
+
+Class Design
+•	Class and Objects
+•	Instance Variables and Static Variables
+•	Methods and Constructors
+Polymorphism
+•	Method Overloading 
+•	Constructor Overloading
+•	Use of “this” keyword
+•	Variable Argument Method (Varargs) in Java
+•	Varargs versus Overloading
+
+
+
+
+
+static :
+package com.pms;
+// static key
+public class Product {
+		static int gst=99;		//class variabe
+		int price=100;		// instance variable
+		
+		public Product() {
+			int price=200;		//local variable
+			price++;
+			System.out.println("Product default cons called : "+(price+gst));
+		}
+		public Product(int price) {
+			this.price = price;
+		}
+		public void changeGstRate() {
+			gst = 999;
+		}
+		public void orderProduct() {
+			price = price + 10;
+			System.out.println("Your total price is :"+ (price+gst));
+		}
+		public static void main(String[] args) {
+			new Product(1200).orderProduct();
+			Product p1 = new Product(500);
+			p1.changeGstRate();
+			p1.orderProduct();
+			Product p2= new Product();
+			p2.orderProduct();
+			
+			System.out.println(gst);
+			
+		}
+}
+
+
+
+
+this keyword
+
+this is a keyword used only inside a constructor or instance method and is used to refer to the current object.
+this is like a hidden reference that compiler provides to refer to current object.
+From the programmer’s point of view this comes handy in two places
+To distinguish between local and class variables when they are the same.
+
+
+public class Student{
+String name;
+…
+Student(String name){
+this.name=name;
+…
+}}
+
+===================================================================
+Initializers
+
+Initializers are blocks of code used to initialize member variables. 
+Non-Static Initializers
+	Used to initialize instance variables
+	Invoked every time object is created
+	Syntax 
+	{ 
+	<<statements>>
+	}
+
+	Static Initializers
+	Used to initialize static variables 
+	Invoked once when the class is loaded
+	Syntax
+	static { <<statements>>}
 
 
 
@@ -468,9 +556,35 @@ Product
 
 
 
+class W{
+public W(){System.out.println("W constructor");}
+}
+
+public class Z{
+W w= new W();
+{
+	System.out.println("instance block");	
+}
+static{
+	System.out.println("static block");
+	}
+public Z(){System.out.println("Z constructor");
+}
+public static void main(String st[]){
+System.out.println("In main");
+new Z(); new Z();
+}}
 
 
 
+
+============================================
+
+Method Overloading  and var args
+=========================
+
+
+same name but different paramters (signature )
 
 
 
