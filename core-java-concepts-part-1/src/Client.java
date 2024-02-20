@@ -1,3 +1,4 @@
+import finance.Employee;
 import hr.*;
 public class Client {
 
@@ -7,26 +8,16 @@ public class Client {
 		System.out.println("Num is : "+num);
 	}
 	public static void main(String[] args) {
-		System.out.println("Hi all");
-		Client client = new Client();
-		client.display();
 		
-		finance.Salary s = new finance.Salary();
-		s.salaryDisbursed();
-		
-		Appraisal a = new Appraisal();
-		a.increment();
-		
-		Leave l = new Leave();
-		l.applyLeave();
-		
-		
-		System.out.println(true);
-		System.out.println(98.9);
-		System.out.println("Hello");
-		System.out.println('I');
-		System.out.println(1818);
-		
+		Employee ramesh = new Employee(101, "Ramesh",98000);
+		ramesh.printEmployeeDetails();
+		Employee neha = new Employee();
+		neha.printEmployeeDetails();
+		Employee richard = new Employee("Richard");
+		richard.printEmployeeDetails();
+		Employee william = new Employee(111,"William");
+		william.printEmployeeDetails();
+
 		
 		
 		

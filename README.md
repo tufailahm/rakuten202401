@@ -434,6 +434,57 @@ Your salary slab is 30%
 
 
 
+Getters and Setters
+==============
+
+Hands on 
+=====================
+Product 
+
+	productId
+	productName
+	quantityOnHand
+	price
+
+
+
+	create default and for paramterzied constructor ( all possible constructor)
+	create method to print product details
+	create getter and setter for all the properties
+	productId once set cannot be changed
+
+	
+
+	use contructor chaining to pre populate the missing information
+
+	Create main method in separate class to store 3 product information in 3 objects and print.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

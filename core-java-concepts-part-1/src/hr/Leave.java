@@ -1,36 +1,26 @@
 package hr;
 
-import java.util.Scanner;
-
 public class Leave {
 	
-	int numberOfDays;
+	private int numberOfDays;
 	
 	public Leave() {
-		
+		numberOfDays = 0;
 	}
-	public Leave(int i) {
-		
+	public Leave(int numberOfDays) {
+		this.numberOfDays = numberOfDays;
 	}
 
-	public void applyLeave() {
-		System.out.println("Apply leave called");
+
+	public void setNumberOfDays(int numberOfDays) {
+		this.numberOfDays = numberOfDays;
+	}
+	public int getNumberOfDays() {
+		return numberOfDays;
+	}
+	public void approved() {
+		System.out.println("Apply leave for days : "+numberOfDays);
 	}
 	
-	public static void main(String[] args) {
-		
-		Leave l1 = new Leave();
-		Leave l2 = new Leave(5);
-		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Enter no of days leave :  ");
-		int noOfDays = sc.nextInt();
-		
-		System.out.println("You applied for : "+noOfDays+ " leave");
-		
-		
-	}
-	
-	
+
 }

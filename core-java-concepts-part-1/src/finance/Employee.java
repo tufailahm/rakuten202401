@@ -1,9 +1,9 @@
 package finance;
 
 public class Employee {
-		int employeeId=0;
-		String employeeName=null;
-		int salary=0;
+		private int employeeId=0;
+		private String employeeName=null;
+		private int salary=0;
 		
 		public Employee() {
 			employeeId = -999;
@@ -31,16 +31,24 @@ public class Employee {
 			System.out.println("Salary :"+salary);
 
 		}
-		public static void main(String[] args) {
-				Employee ramesh = new Employee(101, "Ramesh",98000);
-				ramesh.printEmployeeDetails();
-				Employee neha = new Employee();
-				neha.printEmployeeDetails();
-				Employee richard = new Employee("Richard");
-				richard.printEmployeeDetails();
-				Employee william = new Employee(111,"William");
-				william.printEmployeeDetails();
-
+		
+		
+		
+		public String getEmployeeName() {
+			return employeeName;
 		}
+		public void setEmployeeName(String employeeName) {
+			this.employeeName = employeeName;
+		}
+		public int getSalary() {
+			return salary;
+		}
+		public void setSalary(int salary) {
+			this.salary = salary;
+		}
+		public int getEmployeeId() {
+			return employeeId;
+		}
+	
 		
 }
