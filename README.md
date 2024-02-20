@@ -429,6 +429,7 @@ Your salary slab is 30%
 
 
 
+15 minutes
 
 
 
