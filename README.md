@@ -40,7 +40,6 @@ Eclipse IDE
 
 https://www.eclipse.org/downloads/packages/release/2023-03/r/eclipse-ide-enterprise-java-and-web-developers
 
-DB ?
 
 
 Agenda for Day 2 :
@@ -585,6 +584,172 @@ Method Overloading  and var args
 
 
 same name but different paramters (signature )
+
+
+
+
+DB ?
+
+
+Day 3
+========
+
+Inheritance
+•	Inheritance Basics
+•	Use of super keyword
+•	Overriding
+•	Rules regarding overriding
+•	Runtime Polymorphism
+
+Abstraction
+•	Abstract classes and methods
+•	Final classes and methods
+•	Interfaces
+
+Object class and its methods
+
+
+
+
+Account extends Object
+SavingsAccount extends Account
+
+
+Parent class constructor will also get invoked when you create an object of child class.
+
+
+super keyword 
+==========
+
+an object used to access parent class resources
+
+
+Overriding
+==========
+
+Rules regarding overriding :
+=======================
+
+The method name should be common and the same as it is in the parent class.
+
+The method signature (parameter list, return type) in the method must be the same as in the parent class.
+Access specifier must be same or upper .
+
+There must be an inheritance connection between classes.
+If it declared the methods as static or final, then those methods cannot be overridden.
+
+
+final keyword
+============
+class - cannot be extended
+method - cannot be overridden
+variable - constant and value has be supplied
+
+
+
+
+Abstract class  and Interface
+====================
+
+Hands On :
+
+Animal	 - abstract
+abstract method - 		eat and roam
+non abstract method -	sleep
+
+Dog 	- concrete 
+implement all the abstract methods
+
+
+Men 	- concrete
+implement all the abstract methods
+
+
+Create two interfaces named Tea , Coffee with prepareTea and prepareCoffee methods respectively
+
+
+implement the above two interfaces in Men class
+
+
+String class in java
+===============
+
+- immutable means it cannot be changed
+- it have lot of useful methods
+- java.lang
+- final class
+
+
+
+StringBuffer
+---------------
+-- similar string but mutable
+-- append method
+
+
+
+Object class and its methods
+=====================
+
+super class of all the classes in java
+java.lang
+useful methods
+	toString	- object class methods , we can ovverride to print the instance variable values.
+	finalize
+	equals
+	hashcode
+	
+
+Wrapper classes 
+==============
+	java.lang
+int	Integer
+float	Float
+long	Long
+char	Character
+
+
+
+
+String marks = "nine";
+System.out.println(marks+5);	//985
+
+int temp = Integer.parseInt(marks)
+
+temp+5;		//103;
+
+
+=============================================
+
+
+Any model class will have 
+	- private fields
+	- default cons
+	- parametrized cons
+	- getters and setters
+	- toString
+	- equals and hashcode method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
