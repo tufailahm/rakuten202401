@@ -2,6 +2,8 @@ package com.bms.raukten.model;
 
 import java.util.Objects;
 
+import com.bms.raukten.exception.NegativePriceException;
+
 public class Product {
 	private int productId = 10;
 	private String productName = "Aroma";
@@ -38,7 +40,14 @@ public class Product {
 		this.productId = productId;
 		this.productName = productName;
 		this.quantityOnHand = quantityOnHand;
-		this.price = price;
+		if (price > 0) {
+			this.price = price;
+		}
+		else
+		{
+			price =0;
+			throw new NegativePriceException("Price cannot be negative");
+		}
 	}
 
 	
@@ -49,6 +58,14 @@ public class Product {
 		this.quantityOnHand = quantityOnHand;
 		this.price = price;
 		this.review = review;
+		if (price > 0) {
+			this.price = price;
+		}
+		else
+		{
+			this.price =0;
+			throw new NegativePriceException("Price cannot be negative");
+		}
 	}
 
 	public int getProductId() {
@@ -80,7 +97,14 @@ public class Product {
 	}
 
 	public void setPrice(int price) {
-		this.price = price;
+		if (price > 0) {
+			this.price = price;
+		}
+		else
+		{
+			this.price =0;
+			throw new NegativePriceException("Price cannot be negative");
+		}
 	}
 
 	@Override

@@ -731,6 +731,122 @@ Any model class will have
 	- equals and hashcode method
 
 
+Exceptional Handling in java
+=====================
+
+
+
+Runtime error	- Exception
+
+
+Why exceptional handling is necessary ?
+
+1) For printing appropriate error messages
+2) We dont want to absuptly the program.
+3) close the resources
+
+try
+catch
+finally
+
+
+Object
+	Throwable
+		Exception
+			RuntimeException	(unchecked exception)
+				Arithmetic
+				Negative
+				ArrayIndex
+				NumberFormat
+
+			FileNotFoundException (checked Exception)
+
+
+throw keyword	- raise an exception
+
+
+
+Checked Exception	- compile time
+Unchecked Exception - runtime 
+
+
+
+User Defined Exception
+=================
+Hands  on : 
+
+Create a class named AgeValidator to check whether the person is eligible to vote or not.
+
+Prompt the user to enter his/her age and check the eligibility.
+
+Expected outcome :
+
+Enter your age : 15
+
+Error !!! You are not allowed to vote as you are under aged
+
+
+---
+Enter your age : 21
+
+You are a valid voter. Thank You.
+
+NB : Use exception to print "Error !!! You are not allowed to vote" message.
+
+a) Create InvalidAgeException to raise the exception.
+
+
+15 minutes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+throws
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
