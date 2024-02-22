@@ -1000,10 +1000,38 @@ Neha 34
 Tarun 12
 
 
+Threading
+==========
 
 
 
 
+extends Thread
+implementing Runnable interface - run()
+
+
+
+Thread methods
+
+
+start
+run
+sleep
+interrupt method
+suspend
+yeild
+join
+....
+...
+
+
+
+A prompt asking a question appears for which user is given 1 minute. 
+If user answers the question before 1 minute then "Congratulations!" is displayed. Otherwise "Better Luck Next Time" is displayed.
+Write a program to implement the above scenario.
+
+
+(30 mins)
 
 
 
