@@ -838,6 +838,217 @@ a) Create InvalidAgeException to raise the exception.
 
 15 minutes
 
+=================
+Day 4
+
+Array
+
+
+int []marks = new int[10];
+
+int []marks2;
+marks2 = new int[10];
+
+int grades [] = { 122,22,23,88};
+
+index starts at 0
+
+
+Collections framework
+===============
+
+use case : Suppose you have to store five names and sort and print in ascending order
+
+
+5 lines of code
+
+
+Benefits :
+
+1) Reinvent the wheel
+2) Lots of classes and interfaces to choose from
+3) Less learning curve
+4) Already tested
+5) best algorithms
+
+
+java.util
+
+
+Collection <I>
+
+List<I>(duplicates)				Set<I>(not duplicates)		Map<I> (K,V)
+
+
+ArrayList<C> (iteration) - not thread safe	HashSet<C> - no order is guranteed		HashMap
+LinkedList<C>(frequent add/remove)		LinkedHashSet - as it is			TreeMap
+Vector<C> - thread safe			TreeSet	- sorted				LinkedHashMap
+
+
+
+
+List names = new ArrayList();
+
+
+
+Collections	- class
+
+
+Use case : We have an array with five names . Can we use Collections.sort method to sort the names.
+
+
+Hands On : WAP to accept five numbers from user and print the minimum number in that.
+
+NB : use collections.min to find the minimum number
+
+package com.bms.rakuten.client;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+public class DemoArrayToCollection {
+
+	public DemoArrayToCollection() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static void main(String[] args) {
+		
+		String names[]= {"Neha","Kalpana","Shubham","Tarun","Jay"};
+		
+		List<String> namesList = new ArrayList<String>();
+		
+		namesList = Arrays.asList(names);
+		
+		Collections.sort(namesList);
+		
+		System.out.println(namesList);
+	
+	}
+}
+
+
+
+
+
+
+Comparable -->
+
+java.lang
+compareTo()
+
+strcmp
+
+
+
+----------------------------------------------
+Comparator
+java.util package
+
+compare(o1,o2);
+
+
+
+==================================================
+
+Inner classes
+-----------------
+
+class A
+{
+	private class B
+	{
+	}
+}
+
+Normal inner class
+static inner classes
+local inner class
+anonymous inner classes
+
+
+Use case : I want to sort by reviews 
+
+Option 1 : use comparable
+Option 2 : create separate class using comparator interface
+Option3 : use anomymous inner classes to use comparator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Threads
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
