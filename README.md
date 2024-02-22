@@ -1024,7 +1024,7 @@ join
 ....
 ...
 
-
+<h2>Handson - Threading</h2>
 
 A prompt asking a question appears for which user is given 1 minute. 
 If user answers the question before 1 minute then "Congratulations!" is displayed. Otherwise "Better Luck Next Time" is displayed.
