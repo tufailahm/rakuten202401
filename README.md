@@ -974,7 +974,7 @@ Option 2 : create separate class using comparator interface
 Option3 : use anomymous inner classes to use comparator
 
 
-Handson-- Collection
+<b>Handson-- Collection</b>
 
 Use LinkedList to store list of Score objects (name, score) that will be entered by the user. 
 Make sure they are arranged in the descending order of the scores. 
