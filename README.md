@@ -974,63 +974,30 @@ Option 2 : create separate class using comparator interface
 Option3 : use anomymous inner classes to use comparator
 
 
+Handson-- Collection
+
+Use LinkedList to store list of Score objects (name, score) that will be entered by the user. 
+Make sure they are arranged in the descending order of the scores. 
+Display the linked list in the order of the rank of the student.
+
+Expected output :
+
+Enter how many students you want to store : 3
+
+Enter 1 name : Tarun
+Enter 1 score : 12
+
+Enter 2 name : Anu
+Enter 2 score : 38
+
+Enter 3 name : Neha
+Enter 3 score : 34
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Threads
-
-
-
+The list of the students (Ranked based on score)
+Anu 38
+Neha 34
+Tarun 12
 
 
 
