@@ -1,0 +1,78 @@
+<HTML>
+<HEAD><TITLE>Credit Card Registration Form</TITLE>
+<script type="text/javascript">
+function mydisp(action)
+{
+	if (action=="none") 
+	{
+		document.getElementById('cities').style.display = "block";
+		document.getElementById('trainer').style.display = "block";
+	} 
+	else
+	{
+		document.getElementById('cities').style.display = "none";
+	}
+
+	var x =document.f1.state.options[document.f1.state.selectedIndex].text;
+	
+	
+	var apCities = new Array("Hyderabad","Vizag","Vijayawada");
+	var tnCities = new Array("Chennai","Coimbatore","Nellore");
+	var knCities = new Array("Bangalore","Mandya","Bidar","Mysore","Kolar");
+
+	var y = document.f1.cities;
+	if(x=="AndhraPradesh")
+	{
+		y.length = 0;
+		for(i=0;i<apCities.length;i++)
+		{
+			option = new Option(apCities[i]);
+			y.options[i] = option;
+      		}
+   	}
+	if(x=="TamilNadu")
+	{
+		y.length = 0;
+		for(i=0;i<tnCities.length;i++)
+		{
+			option = new Option(tnCities[i]);
+			y.options[i] = option;
+		}
+   	}
+	if(x=="Karnataka")
+	{
+		y.length=0;
+		for(i=0;i<knCities.length;i++)
+		{
+			option = new Option(knCities[i]);
+			y[i] = option;
+		}
+	}
+}
+</script>
+</HEAD>
+
+<BODY>
+
+<form name="f1">
+
+<center><h2>Online Credit Card Application Form</h2></center>
+
+<label>State:*</label>
+
+<select id="state" onchange="mydisp('none');">
+      <option>AndhraPradesh</option>          
+       <option>TamilNadu</option>
+        <option>Karnataka</option>
+     </select>
+
+<br><br>
+<label>City:*</label>
+  	
+	<select style="display:none;" id='cities'></select>
+
+	<h1 style="display:none" id="trainer">Mohammad Tufail Ahmed</h1>
+	
+</form>
+</BODY>
+</HTML>

@@ -62,13 +62,16 @@ button[type="submit"]:hover {
 		var errUserName = document.getElementById("errUsername");
 		var password = document.forms[0].elements[1].value;
 		var confirmpassword = document.forms[0].elements[2].value;
-
+		errUserName.innerHTML=""
 		if (username.value.length == 0) {
 			errUserName.innerHTML = "<font color=red>Please enter your username ";
+			return false;
 		} else if (password.length == 0) {
 			alert("Please enter your password ")
+			return false;
 		} else if (password != confirmpassword) {
 			alert("Password and confirm password are not same ")
+			return false;
 		}
 	}
 </script>
@@ -76,13 +79,13 @@ button[type="submit"]:hover {
 <body>
 	<div class="container">
 		<h2>Registration Form</h2>
-		<form action="success.html" method="get">
+		<form action="success.html" method="get" onsubmit="return validate()">
 			<div>
 				<label for="username">* Username:</label>
 				 <input type="text"
 					id="username" name="username">
-				<span id="errUsername">Hi</span>
-				Hello
+				<span id="errUsername"></span>
+
 			</div>
 
 			<div>
@@ -106,7 +109,7 @@ button[type="submit"]:hover {
 			<div>
 				<label for="qualification">Qualification:</label> <select
 					id="qualification" name="qualification">
-					<option value="">Select</option>
+					<option value="-1">Select</option>
 					<option value="high_school">High School</option>
 					<option value="associate_degree">Associate Degree</option>
 					<option value="bachelor_degree">Bachelor's Degree</option>
@@ -116,8 +119,7 @@ button[type="submit"]:hover {
 			</div>
 
 			<div>
-				<input type="button" value="Check" onclick="validate()">
-				<button type="submit">Submit</button>
+				<button type="submit" >Submit</button>
 			</div>
 
 		</form>

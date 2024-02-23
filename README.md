@@ -1034,6 +1034,23 @@ Write a program to implement the above scenario.
 (30 mins)
 
 
+<form name=“f1”>
+<input type="text" name="name" id=“n1“> 
+</form>
+
+Getting the value using elements array:
+document.forms[0].elements["name"].value;
+document.forms[0].elements[0].value;
+document.forms[0].elements[“n1”].value;
+Using form name and element name/id combination:
+document.[forms[0]/f1].[login/n1].value
+
+
+
+
+
+
+
 
 
 Assessment - Week 1 (Core Java)
