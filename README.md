@@ -1036,26 +1036,11 @@ Write a program to implement the above scenario.
 
 
 
+Assessment - Week 1 (Core Java)
 
+Consider user has N eggs. Then display the no of eggs in gross (144 eggs make one gross) and no of eggs in dozen (12 eggs make one dozen) and the no of eggs that is left out remaining. The total no of eggs can be got as input through console. The program should display how many gross, how many dozen, and how many left over eggs the user has. 
+For example, if the input is 1342 eggs, then the program should respond with 
+	  Your number of eggs is 9 gross, 3 dozen, and 10 
 
+Coding standard must be maintained.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Javascript
-
-
-Assessment - Week 1
-
-Create a class called Worker. Write classes DailyWorker and SalariedWorker that inherit from Worker. Every worker has a name and a salary. Write method pay() to compute the week pay of every worker.  A Daily worker is paid on the basis of the number of days she/he works. The salaried worker gets paid the wage for 40 hours a week no matter what the actual worked hours are.  Create a few different types of workers and print all the details of  the workers(name, salary and D/W (indicating the type of worker)) in sorted order of the salary.

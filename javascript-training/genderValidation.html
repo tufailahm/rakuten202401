@@ -1,0 +1,67 @@
+<html>
+<head>
+<script type="text/javascript">
+function Button_click()
+{
+	var x=document.getElementById("htext");
+	x.innerText="Tufail <b><i> Ahmed</i></b>Khan"
+	var x1=document.getElementById("htext1");
+	x1.innerHTML="Tufail <b><i> Ahmed</i></b>Khan"
+	
+	var p = document.getElementById("mydiv");
+
+	
+	var uname = document.forms[0].elements[0].value;
+	var male = document.forms[0].elements[1].checked;
+	var female = document.forms[0].elements[2].checked;
+	
+	p.innerHTML = "<font color=red>Thanks for visiting my web site Mr/Ms</font>";
+}
+</script>
+</head>
+<body id="b1">
+
+<form>
+User name : <input type="text" name="username" id="username" ><br/>
+Gender :
+<input type="radio" name="gender" id="gender" value="Male" />Male<br/>
+<input type="radio" name="gender" id="gender" value="Female" />Female<br/>
+
+Preferred Mode of intimation (Atleast 2 to be selected ):
+<br/>
+<input type="checkbox" name="intimation" id="intimation" value="Mobile" />Mobile<br/>
+<input type="checkbox" name="intimation" id="intimation" value="email" />Email<br/>
+<input type="checkbox" name="intimation" id="intimation" value="whatsapp" />WhatsApp<br/>
+<input type="checkbox" name="intimation" id="intimation" value="viber" />Viber<br/>
+<input type="checkbox" name="intimation" id="intimation" value="sms" />SMS<br/>
+
+
+<input type="button" onclick='Button_click()'" value="Click">
+
+
+
+
+
+
+</form>
+
+
+<p id="htext" >This is a text</p>
+<br/>
+<p id="htext1"></p>
+
+<div id="mydiv">
+
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
