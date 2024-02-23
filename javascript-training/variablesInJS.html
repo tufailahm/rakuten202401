@@ -1,0 +1,27 @@
+<html>
+<head>
+<script>
+	total = 0; //Global variable
+	function sum() {
+		y = 20;
+		var x = 10; //Local variable
+		total = x + y;
+	}
+	function display() {
+		r=Math.floor(Math.random()*10);
+		today = new Date();
+		alert(today);
+		alert(r);
+		//sum();
+		alert(total);
+		alert(y);
+		alert(x); // Error
+	}
+</script>
+</head>
+<body>
+	<script>
+		display();
+	</script>
+</body>
+</html>

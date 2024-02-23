@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+}
+
+.container {
+	max-width: 400px;
+	margin: 50px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+	text-align: center;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"], select {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type="radio"] {
+	margin-right: 5px;
+}
+
+button[type="submit"] {
+	background-color: #4caf50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	width: 100%;
+}
+
+button[type="submit"]:hover {
+	background-color: #45a049;
+}
+</style>
+
+<script type="text/javascript">
+	function validate() {
+		var username = document.getElementById("username");
+		var errUserName = document.getElementById("errUsername");
+		var password = document.forms[0].elements[1].value;
+		var confirmpassword = document.forms[0].elements[2].value;
+
+		if (username.value.length == 0) {
+			errUserName.innerHTML = "<font color=red>Please enter your username ";
+		} else if (password.length == 0) {
+			alert("Please enter your password ")
+		} else if (password != confirmpassword) {
+			alert("Password and confirm password are not same ")
+		}
+	}
+</script>
+</head>
+<body>
+	<div class="container">
+		<h2>Registration Form</h2>
+		<form action="success.html" method="get">
+			<div>
+				<label for="username">* Username:</label>
+				 <input type="text"
+					id="username" name="username">
+				<span id="errUsername">Hi</span>
+				Hello
+			</div>
+
+			<div>
+				<label for="password">Password:</label> <input type="password"
+					id="password" name="password">
+			</div>
+
+			<div>
+				<label for="confirm_password">Confirm Password:</label> <input
+					type="password" id="confirm_password" name="confirm_password">
+			</div>
+
+			<div>
+				<label>Gender:</label> <input type="radio" id="male" name="gender"
+					value="male"> <label for="male">Male</label> <input
+					type="radio" id="female" name="gender" value="female"> <label
+					for="female">Female</label> <input type="radio" id="other"
+					name="gender" value="other"> <label for="other">Other</label>
+			</div>
+
+			<div>
+				<label for="qualification">Qualification:</label> <select
+					id="qualification" name="qualification">
+					<option value="">Select</option>
+					<option value="high_school">High School</option>
+					<option value="associate_degree">Associate Degree</option>
+					<option value="bachelor_degree">Bachelor's Degree</option>
+					<option value="master_degree">Master's Degree</option>
+					<option value="phd">Ph.D.</option>
+				</select>
+			</div>
+
+			<div>
+				<input type="button" value="Check" onclick="validate()">
+				<button type="submit">Submit</button>
+			</div>
+
+		</form>
+	</div>
+
+</body>
+</html>

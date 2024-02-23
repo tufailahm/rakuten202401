@@ -1053,3 +1053,9 @@ Write a program to implement the above scenario.
 
 
 
+Javascript
+
+
+Assessment - Week 1
+
+Create a class called Worker. Write classes DailyWorker and SalariedWorker that inherit from Worker. Every worker has a name and a salary. Write method pay() to compute the week pay of every worker.  A Daily worker is paid on the basis of the number of days she/he works. The salaried worker gets paid the wage for 40 hours a week no matter what the actual worked hours are.  Create a few different types of workers and print all the details of  the workers(name, salary and D/W (indicating the type of worker)) in sorted order of the salary.

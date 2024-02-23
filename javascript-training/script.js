@@ -1,0 +1,4 @@
+/**
+ * 
+ */
+alert("Welcome to Rakuten");

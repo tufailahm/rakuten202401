@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+function display(){
+	name = "Jay";
+	var marks = 90;
+	document.write(name + " marks is : " + marks);
+	marks = "Ninety";
+	for (i = 1; i <= 5; i++) {
+		document.write("<h2>Rakuten");
+	}
+}
+function print(x){
+	if(x==null)
+		x="Greetings";
+	alert(x);
+	result = confirm("Do you want to continue : ");
+	if(result)
+	{
+			name  = prompt("Enter your name","Noname");	
+	}
+	else
+		{
+		alert("Thanks for using")
+		}
+	
+	alert("Thank You " + name)
+}
+
+	
+</script>
+</head>
+<body>
+<input type="button" value="Click" onclick="display()"/><br/>
+<input type="button" value="Click" onclick="print()"/><br/>
+<input type="button" value="Click" onclick="print('Isha')"/><br/>
+<input type="button" value="Click" onclick="print('Isha','UU')"/><br/>
+<input type="button" value="Click" onclick="display()"/><br/>
+
+</body>
+</html>

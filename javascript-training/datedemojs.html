@@ -1,0 +1,19 @@
+<html>
+<body>
+	<script>
+	var billAmount=parseInt(prompt("Enter the Bill Amount"))
+	var currentDate= new Date();
+	var currentDate=currentDate.getDate();	//23
+
+	var dateDifference= currentDate - 15;
+	if(dateDifference < 0){
+		alert("Your have no fine and the bill amount is : "+billAmount);
+	}
+	else{
+		fineAmount = dateDifference * 50;
+		alert("Your are late by "+dateDifference + " days nd hence fine amount is : "+fineAmount);
+		alert("Your bill amount with fine "+(billAmount+(fineAmount)));
+	}
+	</script>
+</body>
+</html>
