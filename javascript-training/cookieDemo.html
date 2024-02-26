@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function setCookie(value) {
+		currentDate = new Date();
+		currentDate.setDate(currentDate.getDate() + 1);	//27th Feb 2024 12:24
+		
+		document.cookie = "username"+escape(value)+";expires="+currentDate.toGMTString();
+		alert("Next Time you dont need to enter your name :"+value);
+	}
+</script>
+</head>
+<body>
+	<form>
+		User Name:<input type="text" name="uname"> 
+		<input
+			type="button" 
+			value="Login"
+			onClick="setCookie(document.forms[0].uname.value)">
+	</form>
+</html>
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script  type="text/javascript">
+function addControl(){
+	 var mainDiv = document.getElementById("mainDiv");
+	 res = confirm("Are you sure you want to Login?");
+	 if(res){
+		 
+		 var innerDiv = document.createElement("div");
+		 innerDiv.setAttribute("id", "innerDiv");
+		 
+		 var innerSpan = document.createElement("span");
+		 innerSpan.setAttribute('id','labelUserName')
+		 innerSpan.innerText = "Username : ";
+		 mainDiv.appendChild(innerDiv);
+		 
+		 var innerDivPwd = document.createElement("span");
+		 innerDivPwd.setAttribute('id','labelPass')
+		 innerDivPwd.innerText = "Password : ";
+		 mainDiv.appendChild(innerDivPwd);
+		 
+		 var textBoxUserName = document.createElement("input");
+		 textBoxUserName.type = "text";
+		 textBoxUserName.id = "username";
+		 
+		 var textBoxPwd = document.createElement("input");
+		 textBoxPwd.type = "password";
+		 textBoxPwd.id = "password";
+		 
+		 innerDiv.appendChild(innerSpan);
+		 innerDiv.appendChild(textBoxUserName);
+		 innerDiv.appendChild(innerDivPwd);
+		 innerDiv.appendChild(textBoxPwd);
+		 
+		 var submitButton = document.createElement('button');
+
+		 submitButton.setAttribute("id", "subBut");
+		 
+		 submitButton.innerText = "Submit";
+		 submitButton.addEventListener("click", ()=>{
+			 var userName = document.getElementById("username").value;
+			 if(userName === "Sanskar") 
+			 alert("Form submitted successfully");
+			 else 
+			 alert("Invalid UserName")
+		 })
+		 
+		 var resetButton = document.createElement('button');
+
+		 resetButton.setAttribute("id", "subBut");
+		 resetButton.innerText = "Reset";
+		 resetButton.addEventListener("click", ()=>{
+			 var userName = document.getElementById("username");
+			 var pwd = document.getElementById("password");
+			 
+			 userName.value = "";
+			 pwd.value = "";
+		 })
+		 
+		 
+		 mainDiv.appendChild(innerDiv);
+		 mainDiv.appendChild(resetButton);
+		 mainDiv.appendChild(submitButton);
+		 
+	 }
+}
+</script>
+</head>
+<body>
+<h2>Login Form</h2>
+<div id="mainDiv">
+</div>
+<br/>
+<br/>
+<input type="button" id="btn1" value="Add Login Form" onclick="addControl()">
+</body>
+</html>
+
+

@@ -1061,3 +1061,98 @@ For example, if the input is 1342 eggs, then the program should respond with
 
 Coding standard must be maintained.
 
+
+
+-------------------
+
+https://dbeaver.com/download/lite/
+
+
+
+tufailahmedkhan@gmail.com
+
+===============================
+
+
+Hide - elements
+show - on some event
+
+=================================
+
+
+myDiv1
+	Button1
+
+
+
+div	- innerDiv	- newDiv
+span	- mySpan	-  UserName
+[	]	username
+
+
+<input type="text" id="username">
+
+
+Hands : Add n number of textboxes dynamically :
+
+UserName :	[	]
+[	]
+[	]
+[	]
+
+No Of products to be ordered  :  [	4 ]
+
+Submit
+
+
+=======================
+Case 1: When cookie is not there
+
+User Name 	:	[  	]
+
+Login
+
+
+Case 2: We wrote Tarun and clicked Login
+
+User Name 	:	[  Tarun	]
+
+Login
+-----------
+
+Close the browser and revist the page
+
+User Name 	:	[  Maya	]
+
+Login
+
+--------Setting the cookie
+
+
+Close the browser and revist the page
+
+User Name 	:	[  Maya	]
+
+Login
+
+
+--------When loading of the page - get all the cookies , search for a specific cookie named username , 
+-------if not found , textbox will be empty
+-------if found , fetch the cookie value and prepopulate the text box
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
