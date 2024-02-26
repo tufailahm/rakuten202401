@@ -1,0 +1,1 @@
+Product quantity in stock is 98000

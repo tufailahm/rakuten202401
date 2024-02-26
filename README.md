@@ -1145,6 +1145,7 @@ Login
 
 
 
+Oracle : https://www.oracle.com/in/database/technologies/oracle19c-windows-downloads.html
 
 
 

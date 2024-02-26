@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//ajax
+	var http = new XMLHttpRequest();
+	function displayStockDetails() {
+		http.open("GET", "data.txt", true);
+		http.onreadystatechange = dowork;
+		http.send(null);
+	}
+	function dowork() {
+		if (http.readyState == 4) {
+			document.getElementById("stockDetails").innerText = http.responseText;
+		}
+	}
+</script>
+</head>
+<body>
+	<form>
+		User Name:<input type="text" name="uname"> <br /> <br /> <br />
+		<input type="button" onClick="displayStockDetails()"
+			value="Current Stock Price"> <br /> <br /> <br />
+
+		<div id="stockDetails"></div>
+	</form>
+</html>
+
+
