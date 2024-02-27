@@ -1157,3 +1157,75 @@ Oracle : https://www.oracle.com/in/database/technologies/oracle19c-windows-downl
 
 
 
+Python Casting
+============
+
+1) Dynamic in nature
+2) We assign float and assign number , the type will be <int>
+3) Implicit casting lower -->upper
+4) Using arthimetic calculation , the result type would be always higher.
+5) string can be converted to float if it contains the decimal values.
+
+Hands on : Accept a single character (string only from user ) and print the ascii value of that.
+
+
+
+Hands on : Create a array with 10 elements values, Randomly assign some positive and negative numbers.
+
+Expected output : 
+
+Sum of all the positive numbers are : 90
+
+Total negatve numbers encountered : 7
+
+marks = 10;
+
+
+if marks >= 80:
+    print("You passed the test")
+elif marks >= 70:
+    print("You need not appear for the re test")
+else:
+    print("You need at least appear for re test once")
+
+
+
+
+
+
+
+
+
+
+1) Write a Python program to print all even numbers from a given list of numbers in the same order and stop printing any after 237 in the sequence.
+Sample numbers list :
+
+numbers = [    
+    386, 462, 47, 418, 907, 344, 236, 375, 823, 566, 597, 978, 328, 615, 953, 345, 
+    399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866, 950, 626, 949, 687, 217, 
+    815, 67, 104, 58, 512, 24, 892, 894, 767, 553, 81, 379, 843, 831, 445, 742, 717, 
+    958,743, 527
+    ]
+
+2) Write a Python program to print a matrix like below
+
+Expected output : 
+
+Enter the number of matrices you want :
+6
+
+1
+2 2
+3 3 3 
+4 4 4 4
+5 5 5 5 5
+6 6 6 6 6 6
+
+
+
+3) Write a Python program that accepts a sequence of comma-separated numbers from the user and generates a list and a tuple of those numbers.
+Sample data : 3, 5, 7, 23
+Output :
+List : ['3', ' 5', ' 7', ' 23']
+Tuple : ('3', ' 5', ' 7', ' 23')
+
