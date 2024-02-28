@@ -1229,3 +1229,78 @@ Output :
 List : ['3', ' 5', ' 7', ' 23']
 Tuple : ('3', ' 5', ' 7', ' 23')
 
+
+
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+
+
+
+if ( num >0)
+	
+	
+class  A {
+}
+
+
+
+
+
+Functions
+Modules
+	built in
+	custom
+
+OOPS
+	
+
+
+Hands on : Find the years of experience of an employee
+joiningDate = 2019 , 1 , 9
+
+Hands on :
+
+EncryptPassword
+	password
+
+	changePassword(newpassword
+
+
+create cons 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
