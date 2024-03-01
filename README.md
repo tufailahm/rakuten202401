@@ -1667,3 +1667,63 @@ boolean	-	execute("DDL");
 
 Statement		- sql statement is complete
 PreparedStatement		- placeholder , pre compiled
+
+
+
+Assessment - week2
+
+1. Create a Table named RakutenEmployees of all the fields and implement all the constraints and perform all the below tasks :
+
+AssociateID
+AssociateName
+Gender
+DOB
+DOJ
+Address
+City
+BasicSalary
+HRA
+PF
+
+Solution : <create table code>
+
+a) City Can only be Chennai, Banglore and Mysore (Apply constraints so that it should not accept any other city)
+
+Solution : 
+
+b) Insert five records ( Different types of data)
+
+Solution : 
+
+c) If the Salary is greater than 30000 then A grade, if it is between 25000 and 29999 then B grade otherwise C grade
+
+Solution : 
+d) Print the Sum of Salary According to City
+
+Solution : 
+
+e) Calculate the Total Salary of the Employee and Print
+  AssociateID	AssociateName	BasicSalary	HRA	PF 	TotalSalary
+
+Solution : 
+
+f) Calculate the Age of the Associates
+  AssociateID	AssociateName  Age
+
+
+Solution : 
+
+g) Calculate the sum of salary of all the employee considering the lowest at 20000.
+
+
+Solution : 
+
+h)  Calculate Current Age and at which age Employee has joined the organisation.
+
+   AssociateID	 CurrentAge	AgeOnJoining
+
+Solution : 
+
+
+
+========================================================
