@@ -1269,13 +1269,335 @@ create cons
 
 
 
+---SQL
+
+drop table employees;
+drop table departments;
+
+
+create table departments
+(
+	department_id int not null primary key,
+	department_name varchar(30) not null,
+	manager_id int not null, 
+	location_id int not null
+)
+create table employees
+(
+	employeeId integer not null primary key,
+	first_name char(30) null,
+	last_name char(30) not null,
+	EMAIL char(30) null unique,
+	PHONE_NUMBER char(10),
+	HIRE_DATE date,
+	JOB_ID char(10),
+	SALARY integer check (salary > 0),
+	COMMISSION_PCT integer null,
+	MANAGER_ID integer null,
+	DEPARTMENT_ID integer,
+	constraint fkdeptid foreign key(department_id) references departments(department_id)
+)
+
+create table demo 
+(
+productId integer,
+ssnCode integer,
+productName char(30) constraint pnamequnie unique,
+price integer,
+qoh integer check ( qoh > 0),
+constraint pkpIdSsnCode primary key(productId,ssnCode),
+constraint chkPrice check (price > 0)
+)
+
+
+drop table demo;
+insert into demo values(1,3,null,9,9);
 
 
 
 
 
 
-See you 2:15 PM 29th Feb 2028
+
+
+
+
+
+
+
+
+insert into employees values
+(100,'Tufail','Ahmed','tufail@gmail.com','8867205331',CURRENT_DATE,'IT_PROG',29000,null,null,null);
+
+insert into employees (employeeId,last_name) values (101,'Tarun') 
+
+insert into employees values
+(102,'Harish','Salve','harish@gmail.com','8867205332',CURRENT_DATE,'IT_PROG',39000,5,100,10);
+
+
+insert into employees (employeeId,last_name) values (101,'Yamini') 
+
+select * from employees ;
+
+--Hands on -- create departments table with 5 departments 
+
+
+
+
+insert into departments values
+(10, 'administration', 200, 1700),
+(20, 'marketing', 201, 1800),
+(30, 'purchasing', 114, 1700),
+(40, 'human resources', 203, 2400),
+(50, 'shipping', 121, 1500);
+
+
+select * from departments;
+
+DEPARTMENT_ID	DEPARTMENT_NAME	MANAGER_ID	LOCATION_ID
+10	Administration	200	1700
+20	Marketing	201	1800
+30	Purchasing	114	1700
+40	Human Resources	203	2400
+50	Shipping	121	1500
+
+
+insert into employees values
+(103,'Isha','Salve','isha@gmail.com','8867205331',CURRENT_DATE,'IT_PROG',49000,null,100,900);
+
+
+--Hands on 
+
+--create a table jobs as below
+
+JOB_ID	JOB_TITLE		MIN_SALARY		MAX_SALARY
+AD_PRES	President		20080			40000
+AD_VP	Vice President	15000			30000
+IT_PROG	Programmer		4000			10000
+
+--JOB_ID should be primary key
+--MIN_SALARY and MAX_SALARY should not be negative
+-- JOB_TITLE should not be null ( please create this as table level)
+
+SELECT constraint_name, table_name, column_name, ordinal_position 
+FROM information_schema.key_column_usage WHERE table_name = 'employees';
+
+
+
+create table jobs
+(
+	JOB_ID char(30) primary key,
+	JOB_TITLE char(30),
+	MIN_SALARY integer check(MIN_SALARY > 0),
+	MAX_SALARY integer check(MAX_SALARY > 0),
+	constraint fkjobId check(JOB_TITLE is not null)
+)
+
+
+insert into jobs(job_id, job_title, min_salary, max_salary)
+values ('AD_PRES', 'President', 20080, 40000),
+('AD_VP', 'Vice President', 15000, 30000),
+('IT_PROG', 'Programmer', 4000, 10000);
+
+
+select * from jobs;
+select * from employees;
+select * from departments d ;
+
+----------alter table
+select * from employees e 
+select * from departments e 
+
+
+insert into employees (employeeId,last_name) values (3450,'devansh') 
+
+
+employees(employeeId) 	--> departments (managerId)
+
+alter table departments  add constraint fkdeptempid foreign key(manager_id)
+references employees(employeeId)
+
+
+insert into departments values (60, 'administration', 3450, 1700);
+
+select * from jobs;
+
+alter table jobs drop incrementSalary
+
+alter table jobs add incrementSalary integer
+
+alter table jobs add constraint increntConstr check (incrementSalary > 10);
+
+-------------DML
+
+select * from employees;
+select * from departments d ;
+
+update employees set salary = salary + salary * .10
+where employeeid =100;
+
+update employees set salary = salary + salary * .10, department_id =10
+where employeeid =100;
+
+----- delete
+
+delete from employees where last_name = 'prajwal';
+
+
+truncate table employees
+
+----------TCL 
+----commit, rollback , savepoint
+
+----Tufail - india
+
+select * from employees;
+select first_name,phone_number,salary from employees
+where employeeid =100
+
+
+insert into employees (employeeId,last_name) values (1202,'prashanth') 
+
+commit;
+
+create table a ( marks integer )
+
+select * from a;
+
+commit;
+
+
+rollback;
+
+select first_name,phone_number,salary from employees
+where employeeid =100
+
+update employees set salary = salary + salary * .10, department_id =10
+where employeeid =100;
+
+commit;
+
+
+
+alter table demo alter productName type char(40)
+
+
+
+
+select * from demo where false
+
+
+
+
+
+
+
+SELECT constraint_name, table_name, column_name, ordinal_position 
+FROM information_schema.key_column_usage WHERE table_name = 'employees';
+
+select * from information_schema.columns where table_name = 'employees'
+
+
+
+---aggregate functions 
+sum,min,max,avg,count
+
+select count(*) from employees e ;
+
+select count(manager_id) from employees e ;
+select count(salary) from employees e ;
+select count(department_id) from employees e ;
+
+select sum(salary) from employees e ;
+
+------------group by
+
+select * from employees
+
+-- find out all the employees reporting to manager = 100
+
+select * from employees e where manager_id = 100;
+
+update employees set salary = 900,manager_id = 114,department_id =20 where employeeid  = 121
+
+update employees set salary = 900 where employeeid  = 100
+
+
+---- find out in department wise employee count
+
+select department_id, count(employeeid) from employees e 
+group by department_id 
+
+--- find out manager wise employee count
+select manager_id, count(employeeid) from employees e 
+group by manager_id 
+----find out department wise sum of salary
+select department_id , sum(salary) from employees e 
+group by department_id 
+
+
+-----find out sum of salary department wise and manager _ id wise
+select department_id , manager_id, sum(salary) from employees e 
+group by department_id ,manager_id
+
+
+
+-----order by
+
+select * from employees e order by salary 
+select * from employees e order by salary desc, last_name asc
+
+select * from departments d 
+-------------joins
+----natural join
+select last_name ,salary , department_name from employees e 
+natural join departments d 
+
+---- Inner join - showing matched data
+----using ( if the two table has common column )
+
+select last_name ,salary , department_name from employees e 
+join departments d 
+using (department_id)
+
+select last_name ,salary , department_name from employees e 
+join departments d 
+using (manager_id)
+
+----on
+
+select last_name ,salary , department_name from employees e 
+join departments d 
+on d.department_id = e.department_id  
+
+select last_name ,salary , department_name from employees e 
+join departments d 
+on d.manager_id  = e.manager_id
+
+----aliases
+select e.last_name ,e.salary , d.department_name, e.manager_id  from employees e 
+join departments d 
+on d.manager_id  = e.manager_id
+
+
+--------outer join
+--
+select last_name ,salary , department_name from employees e 
+join departments d 
+on d.department_id  = e.department_id 	-- inner join (matched data)
+
+select last_name ,salary , department_name from employees e  -- outer (unmatched side left)
+left outer join departments d 
+on d.department_id  = e.department_id 
+
+
+select last_name ,salary , department_name from employees e  -- outer (unmatched side left)
+right outer join departments d 
+on d.department_id  = e.department_id 
+
+select last_name ,salary , department_name from employees e  -- outer (unmatched side left)
+full outer join departments d 
+on d.department_id  = e.department_id 
 
 
 
@@ -1288,19 +1610,60 @@ See you 2:15 PM 29th Feb 2028
 
 
 
+===============================================================
 
 
 
 
+Day 10
+
+Mongo DB - ins
+Dbeaver lite
 
 
 
 
+JDBC
+=======
+
+Java 	- 		Postgres
+Step 1: Load an appropriate driver 
+Step 2 : Create the connection	java.sql package
+	
+
+
+===============Product Application=============
 
 
 
+1. Add Product 
+2. Update Product
+3. Delete Product
+5. Find Product by Id
+6. Find Product By product name
+7. Find all products
+
+0. E X I T 
+
+
+8. Find By Price range 	Enter lower price : 10 
+			Enter higher price : 20
 
 
 
+Design patterns=====DAO
+
+interface 	- ProductDAO
+	
+
+class	- ProductDAOImpl
 
 
+RS	-	executeQuery("select");
+int	-	executeUpdate("DML");
+boolean	-	execute("DDL");
+
+
+
+Statement		- sql statement is complete
+PreparedStatement		- placeholder , pre compiled
