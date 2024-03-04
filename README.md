@@ -1732,11 +1732,13 @@ Solution :
 How you can create collection in mongodb by importing json documents.
 
 
-https://www.mongodb.com/try/download/database-tools
+1) https://www.mongodb.com/try/download/database-tools
 
-unzip 
+2) unzip 
 
-mongoimport --db productdb --collection restaurants --file E:/NewTrainingMaterial/mongodb/Exercise/restaurants/restaurants.json
+3) open cmd in bin folder
+
+4) mongoimport --db productdb --collection restaurants --file E:/NewTrainingMaterial/mongodb/Exercise/restaurants/restaurants.json
 
 
 
