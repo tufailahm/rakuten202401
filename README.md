@@ -1727,3 +1727,16 @@ Solution :
 
 
 ========================================================
+
+
+How you can create collection in mongodb by importing json documents.
+
+
+https://www.mongodb.com/try/download/database-tools
+
+unzip 
+
+mongoimport --db productdb --collection restaurants --file E:/NewTrainingMaterial/mongodb/Exercise/restaurants/restaurants.json
+
+
+
