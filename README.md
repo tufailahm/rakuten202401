@@ -1741,4 +1741,311 @@ How you can create collection in mongodb by importing json documents.
 4) mongoimport --db productdb --collection restaurants --file E:/NewTrainingMaterial/mongodb/Exercise/restaurants/restaurants.json
 
 
+findAndDelete
+findAndUpdate
+findAndModify
 
+----------MongoDB===========
+
+db.product.find()
+
+db.product.insertOne({"productId": 1011, "productName" : "Lakme", "quantityOnHand": 2200, "price" : 450})
+
+db.product.insert(
+{"productId": 1013, 
+"productName" : "Pendrive",
+"quantityOnHand": 1, 
+"price" : 12})
+
+
+db.product.insert(
+{"productId" : 1014, 
+"productName" : "Projector"
+})
+
+
+db.product.insert(
+{"productId" : 1015, 
+"productName" : "Bottle",
+"reviews" : "Excellent"
+})
+
+db.product.insert({ 
+"productId" : 1016 , "productName": "Trousers", "price" : 98000, "category" : "Luxury" })
+
+db.createCollection("newproduct")
+
+db.newproduct.find()
+
+db.newproduct.insert({ 
+"productId" : 1016 , "productName": "Trousers", "price" : 98000, "category" : "Luxury" })
+
+db.oldproduct.insert({ 
+"productId" : 1016 , "productName": "Trousers", "price" : 98000, "category" : "Luxury" })
+
+
+db.oldproduct.find()
+
+--------Hands on 
+
+Create a collection named employees to store employeeId, employeeName , salary of employees
+Store 3 employees data
+1  Ahmed   98000
+2  Neha    
+3  Tarun   -- tarun has no salary but stipend of INR 1500 
+
+db.createCollection("employees")
+db.employees.insert( { "employeeId" : 1 , "employeeName" : "Ahmed", "salary" : 98000 })
+db.employees.insert( { "employeeId" : 2 , "employeeName" : "Neha", })
+db.employees.insert( { "employeeId" : 3 , "employeeName" : "Tarun", "stipend" : 1500 })
+
+
+db.employees.find();
+
+
+db.info.find();
+
+
+
+
+---Hands on --
+create a new collection named newemployees with employeeId, employeeName , 
+salary (basic,hra,pf,insurance)
+
+use : javascript way of creating the collection
+
+
+db.info.find();
+db.empinfo.find();
+
+db.employees.find();
+
+
+db.employees.drop();
+
+
+db.customers.find();
+
+db.customers.find({ 'customerName' : 'Lalit'})
+
+
+db.customers.find({ 'customerName' : 'Lalit'} )
+
+db.customers.find({$or : [{ 'customerName' : 'Lalit'} , { 'customerName' : 'Mohit'}] } )
+
+db.customers.find({$and : [{ 'customerName' : 'Lalit'} , { 'bilAmount' : 1200 }] } )
+
+
+db.customers.find()
+db.customers.find({})
+db.customers.find({ 'bilAmount' : {$gt:2000}})
+
+db.customers.find({'address.city' : 'Mumbai' })
+
+---Get all the customers
+
+-- Get all the customers who are from Agra 
+
+-- Get all the customers who have balancees more than 5000
+
+-- Get all the customers who are from UttarPradesh but should not be from Agra
+
+db.customers.find({ "address.state" : "UttarPradesh", "address.city" : {$ne : "Agra"}})
+
+
+db.customers.find({ "address.state" : { $in : ["Uttar Pradesh", "UttarPradesh"] } }) 
+db.customers.find({ "address.state" : { $nin : ["Uttar Pradesh", "UttarPradesh"] } }) 
+
+db.customers.find({ "address.state" : { $in : ["Uttar Pradesh", "UttarPradesh"] } }) 
+
+
+db.customers.find({ 
+	"address.state" : { $in : ["Uttar Pradesh", "UttarPradesh"] },
+	"address.city" : { $nin : ["Agra"] }
+	}) 
+
+
+db.customers.find({ 
+	"address.city" : { $nin : ["Agra"] }
+	}) 
+	
+
+db.customers.find().sort({ 'customerName' : 1}); 
+db.customers.find().sort({bilAmount:1}); 
+db.customers.find().sort({bilAmount:-1}); 
+
+
+db.customers.find().sort({'address.city' : 1}).limit(2);
+
+db.customers.find().limit(3);
+
+---------------Aggregate functions
+
+--- Get me sum of balance of customers who are from agra
+
+
+--
+
+db.newcustomers.find();
+
+
+db.newcustomers.aggregate([
+	{ 
+		$project : { customerName : 0} 
+	}
+])
+
+
+db.newcustomers.aggregate([
+	{ 
+		$project : { '_id' : 0 , 'customerName' : 1} 
+	}
+])
+
+
+db.newcustomers.aggregate([
+	{ 
+		$project : { '_id' : 0 , 'customerName' : 0} 
+	}
+])
+
+
+db.newcustomers.aggregate([
+	{ 
+		$project : { '_id' : 0 , 'customerName' : 0, 'gender': 0} 
+	}
+])
+
+
+
+db.newcustomers.aggregate([
+	{ 
+		$project : { '_id' : 0 , 'gender': 1} 
+	}
+])
+
+
+db.newcustomers.aggregate([
+	{ $match : { gender : 'male' }},
+	{ $project : { _id : 0, customerName: 1, gender : 1, balance : 1, "address:city": 1}}
+])
+
+
+db.newcustomers.aggregate([
+	{ $match : { gender : 'male'  , 'address.city' : 'Mumbai'  }},
+	{ $project : { _id : 0, customerName: 1, gender : 1, balance : 1, "address.city": 1}}
+])
+
+
+--- Get all the customers (customername, gender,emailid, balance) who are female 
+and also balance > 2000
+
+db.newcustomers.aggregate([
+	{ $match : { gender : 'female' , balance : { $gt : 2000 } } },
+	{ $project : { _id : 0, customerName : 1, gender : 1,  emailId : 1, balance : 1 }}
+])
+
+
+db.newcustomers.aggregate([
+	{ $match : { gender : 'male' , balance : { $gt : 2000 } } },
+	{ $project : { _id : 0, customerName : 1, gender : 1,  emailId : 1, balance : 1 }}
+])
+
+db.newcustomers.aggregate([
+	{ $match : { gender : 'female' , balance : { $gt : 2000 } } },
+	{ $project : { _id : 0, customerName : 1, gender : 1,  emailId : 1, balance : 1 , "address.city" : 1}}
+])
+
+db.newcustomers.aggregate([
+	{ $match : { gender : 'female' , balance : { $gt : 2000 } , "address.city" : 'Agra' } },
+	{ $project : { _id : 0, customerName : 1, gender : 1,  emailId : 1, balance : 1 , "address.city" : 1}}
+])
+
+--------
+db.newcustomers.find();
+
+-- Get all males who are between 25 and 30
+-- Print only customername, age and city
+
+
+db.newcustomers.aggregate([
+	{ $match : {'gender' : 'male', age :{$gte:25, $lte:30}}},
+	{ $project : {_id : 0  ,customerName : 1, age : 1,  "address.city" : 1}}
+
+])
+
+
+db.restaurants.find()
+
+
+db.newcustomers.aggregate([
+	{ $group : { _id : "$gender" , CountOfGender : { $sum : '$billAmount' }}}
+])
+
+
+db.newcustomers.aggregate([
+	{ $group : { _id : "$gender" , CountOfGender : { $sum : 1 }}}
+])
+
+
+db.newcustomers.aggregate
+([{$group : { _id : "$address.city" , "OurCustomResult" : { $sum : "$balance"} } }]);
+
+
+db.newcustomers.aggregate
+([
+	{ $group : {_id : '$gender' , SumOfBillAmount : {$sum: "$billAmount" } }}
+])
+
+
+db.newcustomers.aggregate([
+{ $match : { billAmount : 99 } },
+{ $addFields : { gst : 120 } }
+])
+
+
+db.newcustomers.find()
+
+db.neworders.find()
+
+
+db.newcustomers.aggregate([
+  { $match : { customerName : 'Mohit' } },
+  { $project : { _id : 0, customerName : 1, billAmount : 1 } },
+  { $lookup : {
+      from : 'neworders',
+      localField : 'customerName',
+      foreignField : 'customerName',
+      as : 'TotalOrderDetails'
+  } }
+])
+
+
+
+ db.customers.update({customerName:"Tufail"}, {$set: {email : "tufail@gmail.com"}, upsert: true });
+
+db.customers.find()
+
+db.customers.update({"customerName": "Mohan" }, { $inc:{billAmount : 100}})
+
+db.customers.update({customerName:"Mohan"},{$unset:{bilAmount:1}});
+
+db.customers.updateMany({},{$unset:{billAmount:1}});
+
+-----delete
+
+db.customers.delete({'address.city':'Mumbai'})
+
+
+db.customers.updateMany({customerName : "Jay"}, {$set : {customerName : "Jaya",email : "demo@gmail.com"}}, {upsert:true} );
+
+
+db.products.find()
+
+db.products.updateMany(
+    {_id: 6 },
+    { $set: {price: 999} }
+)
+
+
+=======================================
