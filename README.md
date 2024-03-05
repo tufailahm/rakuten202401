@@ -2070,9 +2070,29 @@ home / tufail
 	   sql.txt
 	
 
+rwx
 
 
+ugo
+
+chmod rwx-ugo record.txt
+
+ls -l record.txt
 
 
+4 read
+2 write
+1 execute
+
+chmod 431
+
+chmod 000 record.txt	
+
+chmod 563 record.txt
+
+-r-xrw--wx
+
+-rw--w-r-x
 
 
+chm
