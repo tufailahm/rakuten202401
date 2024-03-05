@@ -2049,3 +2049,30 @@ db.products.updateMany(
 
 
 =======================================
+
+
+Linux
+
+
+home / tufail
+             tech
+	java
+	   javanotes.txt
+	database
+		mongo
+		oracle
+		>
+		   create a file here with the sql.txt
+		 
+		  oracleppt.txt
+	python
+	   notespython.txt
+	   sql.txt
+	
+
+
+
+
+
+
+
