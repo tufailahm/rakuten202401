@@ -3,7 +3,7 @@ package com.training.rakuten.pms.utility;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+//swapnil
 public class DBConnection {
 		public static Connection getDBConnection() {
 			Connection connection=null;

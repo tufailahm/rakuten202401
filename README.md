@@ -2095,4 +2095,213 @@ chmod 563 record.txt
 -rw--w-r-x
 
 
-chm
+chmod
+
+
+===================Day 13
+
+
+Spring , Spring Boot and Microservices
+
+spring is open source framework
+spring is used for big projects
+Inversion Of Control and Depdendency Injection design pattern
+
+
+Bean in spring - object managed by spring will be known as beans.
+
+
+Spring - Difficult to configure
+
+Spring Boot- spring without tears, zero configuration.
+
+
+Use case : 
+Employee 
+	getDetails()
+	{
+		
+	}
+
+
+Employee employee;
+
+empoyee.getDetails();
+
+
+
+
+
+
+Sterotyopes annotation
+
+Spring container
+
+
+
+
+
+<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+    <version>2.6.7</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.3.5</version>
+</dependency>
+
+
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=root
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.generate-ddl=true
+spring.jpa.properties.hibernate.format_sql=true
+
+
+Step 4: List some JPA annotation
+
+@Entity
+@Table
+@Id
+@Column
+
+
+
+
+
+
+
+
+
+
+
+Annotation 
+
+@ - Meta data - JDK 1.5
+
+
+
+localhost:9090		- Good morning
+localhost:9090/welcome
+localhost:9090/welcome/rakuten
+localhost:9090/product
+
+
+
+localhost:9090/product/getAllProduct
+localhost:9090/product/deleteProduct/191
+localhost:9090/product/searchProduct/19/and/200
+
+localhost:9090/product/deleteProductByName/Lakme/status/outofstock
+
+Expected output : Lakme outofstock product is successfully deleted
+
+localhost:9090/product/deleteProductByName/Aroma/status/oldproduct
+Expected output : Aroma oldproduct product is successfully deleted
+
+localhost:9090/product/saveProduct/
+
+
+localhost:9090/product
+
+
+
+localhost:9090/product	- GET ALL PRODUCTS
+localhost:9090/product/191	- GET A SINGLE PRODUCT
+localhost:9090/product/191	- DELETE A SINGLE PRODUCT	-- DELETE
+localhost:9090/product	- SAVE				-- POST
+localhost:9090/product		- UPDATE				-- PUT	
+localhost:9090/product/search/Lakme 		- FETCH PRODUCT BY NAME	-- GET	
+localhost:9090/product/search/200/500 		- FETCH PRODUCT BY PRICE RANGE	-- GET
+
+
+HTTP METHODS 
+
+GET		- fetching
+POST		- insert/save
+PUT		- update
+DELETE		- delete
+
+
+
+
+Spring Data JPA ( ORM)
+====================
+
+
+Use case : We want to save the product information in DB.
+
+
+Step 1: Add spring data jpa , postgres driver  in your application 
+
+
+Step 2:  update application.properties file 
+
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=root
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.generate-ddl=true
+spring.jpa.properties.hibernate.format_sql=true
+
+Step 3: 
+
+Create an interface ProductDAO 
+package com.training.pms.dao;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.training.pms.model.Product;
+
+@Repository
+public interface ProductDAO extends CrudRepository<Product, Integer>{
+
+}
+
+Step 4 : We have to configure Product model class to map with newproducts table in db
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "newproducts")
+public class Product {
+
+	@Id
+	private int productId = 10;
+
+
+Step 5 : public class ProductController {
+	
+	@Autowired
+	ProductDAO productDAO;
+
+	@PostMapping	//localhost:9090/product
+	public String saveProduct(@RequestBody Product product) {
+		//code for saving product
+		productDAO.save(product);
+		return "Your product saved  : "+product.toString(); 
+	}
+
+
+
+
+
+
+
+
+
+
+

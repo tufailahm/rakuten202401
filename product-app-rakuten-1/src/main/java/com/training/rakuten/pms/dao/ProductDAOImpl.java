@@ -13,6 +13,8 @@ import com.training.rakuten.pms.utility.DBConnection;
 public class ProductDAOImpl implements ProductDAO {
 
 	Connection connection = DBConnection.getDBConnection();
+	//Mail m = MailConnection.getEmailDetails();
+	//SMS s = SMSConnection.getSMSDetails()
 	Statement statement = null;
 	ResultSet res = null;
 	PreparedStatement preparedStatement = null;
