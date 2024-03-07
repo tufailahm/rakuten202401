@@ -2247,8 +2247,8 @@ Step 2:  update application.properties file
 
 spring.datasource.driver-class-name=org.postgresql.Driver
 spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
-spring.datasource.username=postgres
-spring.datasource.password=root
+spring.datasource.username=
+spring.datasource.password=
 
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.generate-ddl=true
@@ -2283,7 +2283,9 @@ public class Product {
 	private int productId = 10;
 
 
-Step 5 : public class ProductController {
+Step 5 : Open controller 
+
+public class ProductController {
 	
 	@Autowired
 	ProductDAO productDAO;
@@ -2294,6 +2296,38 @@ Step 5 : public class ProductController {
 		productDAO.save(product);
 		return "Your product saved  : "+product.toString(); 
 	}
+
+
+
+
+
+@CrossOrigin(origins = "http://localhost:4200")
+
+
+
+
+
+
+
+
+
+
+
+http://localhost:9090/product
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

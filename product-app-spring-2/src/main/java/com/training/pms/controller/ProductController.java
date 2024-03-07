@@ -1,6 +1,12 @@
 package com.training.pms.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,42 +21,105 @@ import com.training.pms.model.Product;
 
 @RestController
 @RequestMapping("product")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
 	
 	@Autowired
 	ProductDAO productDAO;
 	
 	@GetMapping			//localhost:9090/product
-	public String getProducts() {
-		//code for returning all the products
-		return "GETTING ALL THE PRODUCTS"; 
+	public List<Product> getProducts() {
+		return (List<Product>) productDAO.findAll();
 	}
 	@GetMapping("{productId}")			//localhost:9090/product/999
-	public Product getProduct(@PathVariable("productId")int productId) {
+	public ResponseEntity<Product> getProduct(@PathVariable("productId")int productId) {
+		ResponseEntity<Product> responseEntity = null;
 		Product product = new Product();
-		product.setProductId(productId);
-		return product;
+		Optional<Product> p = null;
+		boolean result = productDAO.existsById(productId);
+		if(result == false)
+		{
+			responseEntity = new ResponseEntity<Product>(product, HttpStatus.NO_CONTENT);
+		}
+		else
+		{
+			p  = productDAO.findById(productId);
+			product = p.get();
+			responseEntity = new ResponseEntity<Product>(product, HttpStatus.OK);
+		}
+		return responseEntity;
 	}
+	
+	
+	
+	
+	
 	@GetMapping("search/{productName}")			//localhost:9090/product/999
 	public String getProduct(@PathVariable("productName")String productName) {
-		//code for returning all the products
 		return "GETTING A SINGLE PRODUCT BY NAME :: "+productName; 
 	}
+	
+	
 	@DeleteMapping("{productId}")			//localhost:9090/product/999
-	public String deleteProduct(@PathVariable("productId")int productId) {
-		//code for returning all the products
-		return "DELETEING  A SINGLE PRODUCT :: "+productId; 
+	public ResponseEntity<String> deleteProduct(@PathVariable("productId")int productId) {
+		ResponseEntity<String> responseEntity = null;
+		boolean result = productDAO.existsById(productId);
+		if(result == false)
+		{
+			responseEntity = new ResponseEntity<String>("No product found", HttpStatus.NO_CONTENT);
+		}
+		else
+		{
+			productDAO.deleteById(productId);
+			responseEntity = new ResponseEntity<String>("Product deleted successfully", HttpStatus.OK);
+		}
+		return responseEntity;
 	}
+	
+	
+	
 	@PostMapping			//localhost:9090/product
-	public String saveProduct(@RequestBody Product product) {
-		//code for saving product
-		productDAO.save(product);
-		return "Your product saved  : "+product.toString(); 
+	public ResponseEntity<String> saveProduct(@RequestBody Product product) {
+		ResponseEntity<String> responseEntity = null;
+		boolean result = productDAO.existsById(product.getProductId());
+		if(result == false)
+		{
+			productDAO.save(product);
+			responseEntity = new ResponseEntity<String>("Saved successfully", HttpStatus.OK);
+		}
+		else
+		{
+			responseEntity = new ResponseEntity<String>("Not Saved ", HttpStatus.CONFLICT);
+
+		}
+		return responseEntity;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	@PutMapping			//localhost:9090/product
-	public String updateProduct(@RequestBody Product product) {
-		//code for returning all the products
-		return "Your product updated  : "+product.toString(); 
+	public ResponseEntity<String> updateProduct(@RequestBody Product product) {
+		ResponseEntity<String> responseEntity = null;
+		boolean result = productDAO.existsById(product.getProductId());
+		if(result == false)
+		{
+			responseEntity = new ResponseEntity<String>("Not found ", HttpStatus.NO_CONTENT);
+		}
+		else
+		{		
+			productDAO.save(product);
+			responseEntity = new ResponseEntity<String>("Updated successfully", HttpStatus.OK);
+
+		}
+		return responseEntity;
+		
+		
+		
 	}
 	
     @GetMapping("search/{lower}/{upper}")
