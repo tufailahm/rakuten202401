@@ -2497,5 +2497,50 @@ localhost:
 Load Balancing
 ===========
 
+Ribbon 1  Server : Eureka Server  : 8761	 - 1	
+Client Ribbon - Eureka Client : productserver : 9090 - 2	localhost:9090//productBackend
 
 
+localhost:8888/client/frontend/
+
+
+
+Week3 Assessment
+===============
+
+
+Create a movie REST endpoint with the following URI's
+
+http://localhost:9090/movies
+
+With the above URI, we should be able to perform all the CRUD operation on movies
+
+Movies 
+
+	movieId
+	movieName
+	directorName
+	budget
+
+MoviesController
+
+Test it via postman
+
+http://localhost:9090/movies - should return all the movies
+http://localhost:9090/movies/1911 - should return movie with movie id 1911
+http://localhost:9090/movies/1911 -DELETE  should delete movie with movie id 1911
+http://localhost:9090/movies - POST - should be able to save a movie
+http://localhost:9090/movies - PUT - should be able to update a movie
+http://localhost:9090/movies/findMovie/Ironman - GET - should be able to search and return a movie
+http://localhost:9090/movies/findMovie/29000/988000 - GET - should be able to search and return a movie based on budget range
+
+
+You already have this project with you, if not please create it Movie.java and MovieController.java
+
+Requirements 
+1) Make sure that the movies data should be persisted in postgres sql -> newmovies table
+2) All the above URL's should be tested using postman. 
+Expected output  for example  this uri "http://localhost:9090/movies/findMovie/29000/988000" should fetch all the movies range between 29000 and 988000 from the database.
+
+
+You need to create MovieDAO to persist the data in the DB.
