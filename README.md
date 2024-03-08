@@ -2338,4 +2338,164 @@ http://localhost:9090/product
 
 
 
+4200  - angular - localhost:4200
+
+9090 - spring boot app
+
+
+
+-----------Next week
+
+Docker	 - Install Docker dektop	-https://www.docker.com/products/docker-desktop/
+github.com	-
+
+
+
+
+Microservices
+=============
+
+Load balancing
+Zuul
+Eureka Server
+Eureka Client
+
+
+
+
+package com.training.pms.services;
+
+import java.util.List;
+
+import com.training.pms.model.Product;
+
+public interface ProductService {
+	public boolean addProduct(Product product);
+	public boolean updateProduct(int productId, Product product);
+	public boolean deleteProduct(int productId);
+	public Product findByProduct(int productId);
+	public List<Product> findByProduct(String productName);
+	public List<Product> findByProduct();
+}
+
+
+package com.training.pms.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.training.pms.dao.ProductDAO;
+import com.training.pms.model.Product;
+
+@Service
+public class ProductServiceImpl implements ProductService {
+
+	@Autowired
+	ProductDAO productDAO;
+
+	@Override
+	public boolean addProduct(Product product) {
+		if (product.getPrice() < 0)
+			return false;
+		else {
+			productDAO.save(product);
+			return true;
+		}
+	}
+
+	@Override
+	public boolean updateProduct(int productId, Product product) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteProduct(int productId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Product findByProduct(int productId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> findByProduct(String productName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> findByProduct() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
+
+
+
+--------------------
+What is micro services ?
+
+@Autowired
+	private RestTemplate restTemplate;
+
+
+URI endPoint = URI.create("http://localhost:7090/hi");
+			return restTemplate.getForEntity(endPoint, String.class);
+
+
+
+
+
+
+
+product 	- 9090
+orders	- 7070
+
+http://localhost:7070/orders
+
+
+Step 1: create orders app - web,devtools
+Step 2: change application.properties to application.yml
+
+server:
+ port: 7070
+
+Step 3: Create OrderController
+
+
+
+
+
+
+
+
+Eureka Server : 8761
+
+
+Hands On :
+
+Create Reviews App Service to call product service and get all the product information .
+
+localhost:6060/reviews
+localhost:9090/product	-GETforEnt
+6060
+Register this on eureka server.
+
+
+
+localhost:
+
+
+
+Load Balancing
+===========
+
+
 
