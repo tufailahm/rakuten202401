@@ -3066,7 +3066,6 @@ public class Palindrome {
 	}
 }
 
-
 Create four test cases to check the following words :
 
 malayalam
@@ -3075,5 +3074,176 @@ mom
 madam
 
 I want all the test to pass and the order should be madam , mom, malayalam, amd kota
+
+
+---Parametrized testing
+
+
+<dependency> 
+    <groupId>org.junit.jupiter</groupId> 
+    <artifactId>junit-jupiter-params</artifactId> 
+    <version>5.9.0</version> 
+    <scope>test</scope> 
+</dependency>
+
+
+------------------Selenium
+
+
+
+
+Step 1: open pom.xml
+
+<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+<dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>5.7.0</version>
+</dependency>
+
+
+Step 2: 
+
+
+
+//*[@id="user-name"]
+
+
+Hands on : Create a selenium test to check google search functionality.
+
+
+
+
+Hands On : 
+package com.training.rakuten;
+
+import java.util.Calendar;
+/*
+ * We have been asked to create Helpdesk to assist employees
+ * But this should be operational only FROM Monday to Friday ( 9-5)
+ * Write test case to check this
+ */
+public class HelpDesk {
+
+	public final static int EOB_HOUR = 17;
+
+	public boolean willHandleIssue() {
+		Calendar cal = Calendar.getInstance();
+		int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+		if (Calendar.SUNDAY == dayOfWeek || Calendar.SATURDAY == dayOfWeek) {
+			return false;
+		}
+		if (Calendar.FRIDAY == dayOfWeek) {
+			int hour = cal.get(Calendar.HOUR_OF_DAY);
+			if (hour > EOB_HOUR) {
+				return false;
+			}
+		}
+		return true;
+	}
+}
+
+
+
+
+
+=============
+why Cucumber 
+
+feature files
+
+
+Gherkin language - like simple english language with some keywords
+
+
+Feature
+Scenario
+When
+Then
+And
+Given
+
+Feature: feature to test google search functionality
+
+  Scenario: Search feature is working
+    Given user is on google home page
+    When user enters oneplus 
+    And clicks on search button
+    Then user is navigated to the results page
+
+
+
+Step 1: 	
+
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>7.15.0</version>
+		</dependency>
+Step 2: Run your feature file 
+
+you will get error
+
+package com.training.rakuten;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class LoginTest {
+
+	WebDriver driver;
+	
+	@Given("user is on login page")
+	public void user_is_on_login_page() {
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+
+		driver.get("https://www.saucedemo.com/");
+	}
+
+	@When("user enters username and password")
+	public void user_enters_username_and_password() {
+		driver.findElement(By.xpath("//*[@id=\"user-name\"]")).sendKeys("standard_user");
+		driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("secret_sauce");
+	}
+
+	@When("clicks on login button")
+	public void clicks_on_login_button() {
+		driver.findElement(By.xpath("//*[@id=\"login-button\"]")).click();
+
+	}
+
+	@Then("user is navigated to the home page")
+	public void user_is_navigated_to_the_home_page() {
+		String expected = "https://www.saucedemo.com/inventory.html";
+		String actual = driver.getCurrentUrl();
+		assertEquals(expected, actual);
+		driver.quit();
+
+	}
+
+
+
+}
+
+
+
+
+
+
+
+
 
 

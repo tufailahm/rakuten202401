@@ -12,7 +12,8 @@ public class Palindrome {
 
 		if (word.toLowerCase().equals(reverseStr.toLowerCase())) {
 			return true;
-		} else {
+		} 
+		else {
 			return false;
 		}
 	}
