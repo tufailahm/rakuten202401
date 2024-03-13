@@ -2544,3 +2544,536 @@ Expected output  for example  this uri "http://localhost:9090/movies/findMovie/2
 
 
 You need to create MovieDAO to persist the data in the DB.
+
+
+
+
+
+
+Day 16
+=========
+
+1) Please install  Docker
+
+Please open command line and type docker and check.
+
+2) Please send your week3 assessment to my email id : tufailahmedkhan@gmail.com
+
+
+
+docker run nginx
+
+
+open new command prompt
+
+
+docker ps
+
+docket images
+
+
+
+docker run --name mywebsite -p 8080:80 nginx
+
+Browser : localhost:8080
+
+
+download postgres image as well
+
+
+
+1) Stop nginx container
+2) Check the running container
+3) Check all the containers
+4) Delete the container
+5) Delete the nginx image
+6) donwload postgres image
+7) run the postgres image on port : 5433
+
+
+
+step 1: create index.html
+
+<font color=red><h1>Hello rakuten NGINX</h1></a>
+
+navigate to where index.html is there .
+
+
+docker run --name tufailwebsite -v %cd%:/usr/share/nginx/html:ro -d -p 8080:80 nginx
+
+
+
+
+
+
+
+
+
+docker run --name ahmedpostgres1 -e POSTGRES_USER=tufail -e POSTGRES_PASSWORD=ahmed -p 5433:5432 -d postgres
+
+
+Use case : we want to execute 2 postgres containers in port 7851 and 7852 
+volume in postgres /var/lib/postgresql/data
+
+docker run --name sanskar1 -v f:/var/lib/postgresql/data:/var/lib/postgresql/data -e POSTGRES_USER=sanskar -e POSTGRES_PASSWORD=sanskar -d -p 7851:5432 postgres
+
+
+
+docker run --name sanskar2 -v f:/var/lib/postgresql/data:/var/lib/postgresql/data -e POSTGRES_USER=sanskar -e POSTGRES_PASSWORD=sanskar -d -p 7852:5432 postgres
+
+
+
+docker run --name sanskar3 -v f:/var/lib/postgresql/data:/var/lib/postgresql/data -e POSTGRES_USER=sanskar -e POSTGRES_PASSWORD=sanskar -d -p 7853:5432 postgres
+
+
+
+
+
+How you can dockerize your application :
+===================================
+
+Maven - dependencies	-pom.xml
+
+Generate the jar file
+
+Maven Lifecycle
+Validate, 
+Compile,
+ Test,
+ Package, 		- jar file / target folder
+Integration test, 
+Verify, 
+Install
+Deploy
+
+
+
+
+
+
+Use case : To dockerize our spring boot app 
+
+
+
+
+
+
+
+FROM openjdk:8
+EXPOSE 8080
+ADD target/demo-0.0.1-SNAPSHOT.jar demo.jar
+ENTRYPOINT [ "java", "-jar" , "/demo.jar"]
+
+
+
+
+
+
+
+Create Dockerfile in project root
+
+Step 1: 
+FROM openjdk:8
+EXPOSE 8080
+ADD target/revatureapp.jar demo.jar
+ENTRYPOINT [ "java", "-jar" , "/demo.jar"]
+
+
+Step2 :build the image
+ docker build -t springboot-demo-1.0 .
+
+Step3: Verify
+docker images
+
+
+Step 3: Run the image
+ docker run -p 8080:8080 springboot-demo-1.0 
+
+Browser : http://localhost:8080/demo/message
+
+
+
+
+
+
+
+
+
+
+
+
+Docker
+Docker Compose
+
+
+
+
+
+
+Dockerfile
+
+
+FROM openjdk:8
+EXPOSE 8080
+ADD target/mohammadapp.jar app.jar
+ENTRYPOINT [ "java" , "-jar" , "/app.jar"]
+
+docker build -t springboot-mohammad-demo-1.0 .
+
+ docker run -p 8080:8080 springboot-mohammad-demo-1.0
+
+
+
+
+
+Docker Compose
+=================
+
+
+
+
+spring.data.jpa.user=root
+spring.data.jpa.password=root
+
+yml
+
+spring:
+data:
+		jpa:
+			user:root
+			password:root
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+version: '2'
+
+services:
+  product-app:
+    image: 'spring-boot-revature-product-app:latest'
+    build:
+      context: ./
+    container_name: product-app
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+docker run nginx
+
+
+docker images
+docker container list
+
+docker container stop <id>
+docker ps
+docker ps -a
+docker rmi nginx --force
+
+
+
+=========================
+
+
+
+Hands On :
+
+remove all the containers from your system
+
+remove all the images from your system
+
+verify images and containers list
+
+start ngnix on port 6060 , give it a name as yeshasnginx
+
+verify if it is running or not
+
+stop the container with the name - yeshasnginx
+
+
+Docker
+===========
+docker login
+docker tag rakuten-hello-app 8867205331/rakuten-hello-app:v1
+
+docker push 8867205331/rakuten-hello-app:v1
+
+Delete all the images and containers using your local rakuten-hello-app image
+
+--
+
+To pull and run
+
+docker run 8867205331/rakuten-hello-app:v1
+
+
+docker images with parameters
+=========================
+
+	public static void main(String[] args) {
+		System.out.println("### Rakuten Japan Welcomes you Mr./Ms.- "+System.getenv("name") +" - External ##");
+	}
+
+Dockerfile
+FROM openjdk:8
+COPY . /src/java
+WORKDIR /src/java
+ARG name="Prajwal"
+ENV env_name $name
+RUN ["javac","Welcome.java"]
+ENTRYPOINT [ "java" , "Welcome" ]
+
+
+build the images
+=============
+E:\Trainings\2024\1.Rakuten\rakuten\my-demo\src>docker build -t my-app .
+
+run the images
+============
+E:\Trainings\2024\1.Rakuten\rakuten\my-demo\src>docker run -e name=Neha my-app
+
+
+
+
+========================
+Use case : Dockerizeing spring boot application
+
+Step 1: Create a spring boot application with devtools and spring web
+
+@SpringBootApplication
+@RestController
+public class RakutenAppSpringbootApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(RakutenAppSpringbootApplication.class, args);
+	}
+
+	@GetMapping("/rakuten")
+	public String getMessage() {
+		return "Today is tuesday 12th March 2024";
+	}
+}
+
+application.properties 
+server.port = 7070
+
+Step 2 : open pom.xml file and update final name
+</plugins>
+		<finalName>demo</finalName>
+
+	</build>
+
+Save and close pom.xml
+
+Step 3: Right click on your project --> Run as --> Maven install
+
+Verify target/ demo.jar
+
+Step 4: Create Dockerfile inside project root folder
+
+FROM openjdk:17
+
+ADD /target/demo.jar app.jar
+
+ENTRYPOINT ["java" , "-jar" , "app.jar" ]
+
+EXPOSE 7070
+
+
+Step 5: Open cmd and navigate to project root folder
+E:\Trainings\2024\1.Rakuten\rakuten\rakuten-app-springboot>docker build -t rakuten-springboot-app .
+
+Step 6: Run 
+
+E:\Trainings\2024\1.Rakuten\rakuten\rakuten-app-springboot>docker run -p 9070:7070 rakuten-springboot-app
+
+Step 7 : open browser and type : http://localhost:9070/rakuten
+
+
+===============================================
+Hands on
+
+Create a spring boot app to expose following endpoints :
+
+/holiday	- Happy Holiday to All rakuten employees
+
+7560
+
+
+================
+
+
+Create one images and run on port 7788 and 8877. use detached mode
+
+
+Push this images in docker hub as well.
+
+
+
+
+
+===========
+
+Docker Compose
+
+Step 1: comment application.properties
+
+#spring.datasource.driver-class-name=org.postgresql.Driver
+#spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+#spring.datasource.username=postgres
+#spring.datasource.password=root
+
+Step 2: open pom.xml and add final name
+		</plugins>
+		<finalName>productapp</finalName>
+	</build>
+
+Step 3: Run as --> maven build --> goal --> install --> skip tests
+
+Verify target folder for jar file
+
+Step 4 :  Create Dockerfile 
+FROM openjdk:17
+
+ADD /target/productapp.jar app.jar
+
+ENTRYPOINT ["java" , "-jar" , "app.jar" ]
+
+EXPOSE 9090
+
+Step 5: Create docker-compose.yml
+
+version: '2'
+
+services:
+  product-app:
+    image: 'spring-boot-rakuten-product-app:latest'
+    build:
+      context: ./
+    container_name: product-app
+    ports: 
+      - 9090:9090
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+          
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres
+
+
+Step 6 : Open cmd and navigate to your project root folder ( where is your docker compose file)
+
+E:\Trainings\2024\1.Rakuten\rakuten\product-app-spring-2>docker-compose up
+
+Verify in browser : http://localhost:9090/product
+
+
+QA Testing
+============
+
+
+
+Junit - unit testing
+
+expected = 
+
+actual
+
+
+
+
+Hands on : Create a method as below to check palindrome or not
+
+package com.training.rakuten;
+
+public class Palindrome {
+	public boolean checkpalindrome(String word) {
+		 String reverseStr = "";
+		    
+		    int strLength = word.length();
+
+		    for (int i = (strLength - 1); i >=0; --i) {
+		      reverseStr = reverseStr + word.charAt(i);
+		    }
+
+		    if (word.toLowerCase().equals(reverseStr.toLowerCase())) {
+		     return true;
+		    }
+		    else {
+		      return false;
+		    }
+	}
+}
+
+
+Create four test cases to check the following words :
+
+malayalam
+kota
+mom
+madam
+
+I want all the test to pass and the order should be madam , mom, malayalam, amd kota
+
+
