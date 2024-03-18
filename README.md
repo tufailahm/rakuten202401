@@ -3240,6 +3240,162 @@ public class LoginTest {
 
 
 
+Use case : We are trying to run all cucumber test from one TestRunner class.
+
+
+Step 1 : Update pom.xml
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>7.15.0</version>
+			<scope>test</scope>
+		</dependency>
+
+Step 2: Create a source folder src/test/resources
+
+Right click on your project --> create new source folder --> src/test/resources
+
+Step 3: Create a new normal folder Features inside src/test/resources folder
+
+Step 4: Move all yoour feature files in src/test/resources/Features folder
+
+Step 5 : Create a runner class  as you see in screen
+
+
+
+====================
+
+Jenkins
+CI/CD
+
+
+Jenkins	: https://get.jenkins.io/war-stable/2.440.1/jenkins.war		
+Git	: https://git-scm.com/downloads		- install	
+Maven	: https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.zip - unzip
+
+github.com	- create account and login
+
+
+1) Create a spring boot project named "rakuten-devops-jenkins" devtools and web
+
+
+package com.training.pms;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@RestController
+public class RakutenDevopsJenkinsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(RakutenDevopsJenkinsApplication.class, args);
+	}
+
+	@GetMapping
+	public String getMessage() {
+		return "Rakuten India welcomes you";
+	}
+}
+
+
+
+2)
+java -jar jenkins.war
+
+
+
+tufail
+root
+
+
+Cucumber Hands on 
+
+Scenario: Valid Palindrome     
+Given I entered string "Refer"    
+When I test it for Palindrome     
+Then the result should be "true"  
+ 
+Scenario: Invalid Palindrome     
+Given I entered string "Coin"    
+When I test it for Palin
+drome     
+Then the result should be "false"
+
+
+https://github.com/tufailahm/rakuten-devops-jenkins
+https://github.com/tufailahm/rakuten-devops-jenkins.git
+
+
+
+
+===================
+
+localhost:7070
+localhost:7070/rakuten
+localhost:7070/rakutennew
+
+
+===================================================================
+
+
+React JS
+===========
+
+HTML 
+JS
+CSS
+JSX - Javascript embedded with XML
+
+
+
+
+nodejs.org
+
+visual studio code 
+
+
+
+---
+open cmd and type 
+npm install -g create-react-app
+
+navigate to your folder (where you want to create project )
+
+E:\Trainings\2024\1.Rakuten\rakuten>create-react-app product-app-rakuten
+
+npm start
+
+===========
+
+Hands on - Docker - Jenkins
+==================
+
+Create spring boot project named rakuten-spring-docker-jenkins project
+
+Create a rest controller to handle /sayHello to print welcome message
+
+Change the final name of the project as "rakuten-spring-docker-jenkins"
+
+Change the port to 8656
+
+Save the changes and push in the git repo named "rakuten-spring-docker-jenkins" repository
+
+Create a jenkins job to automate the build process and push image in docker hub
+
+Pull the image and run the image of port 6543 and verify the output
+
+localhost:6543/sayHello - should display the output
 
 
 
@@ -3247,3 +3403,100 @@ public class LoginTest {
 
 
 
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+function Welcome(){
+    return <h1>Welcome , ujjwal</h1>
+}
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+    <Welcome/>
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+
+Week 4 assessment
+
+a) Start 3 containers from image that does not automatically exit, such as nginx, detached.
+Command : 
+Stop 2 of the containers leaving 1 up.
+Command : 
+We’ve left containers and a image that won’t be used anymore and are taking space, as docker ps -a and docker images will reveal. 
+Clean the docker daemon from all images and containers.
+Command : 
+
+b) Create a Dockerfile to create image of our spring boot application which runs on port 9876
+
+c) Command to build and push the image to docker hub
+
+
+
+Day 21
+=====
+
+
+54.174.204.3	
+
+Putty
+
+
+54.209.41.130	ubuntu
+
+
+
+==========================
+
+204.236.220.75	- windows
+
+
+Administrator
+COSq(w;(3O$@9V5oVeBRNSY3r15grU&E
+
+========================
+
+52.91.244.106
+Administrator
+L;fHw@A?kkfRCSJ-ug*-9vVqwppGTZlc
+
+=========================
+
+
+S3 - Bucket
+
+
+wget https://buckettufail.s3.ap-south-1.amazonaws.com/spring-boot-aws-demo.jar
+sudo apt-get update
+ sudo apt install openjdk-17-jre-headless
+java -jar spring-boot-aws-demo.jar
+
+
+http://54.209.41.130:8080/rakuten
+
+
+
+Hands on
+===========
+
+
+Create one EC2 instance with ubuntu machine <yourname>rakuten and note the ip address
+Connect to this machine using SSH
+Create a bucket named <yourname>files
+Upload some images.
+Create a spring boot  application : port : 9876 with the following mappings
+/hello
+Hi and welcome to <yourname> spring app deployed on aws ububntu machine <yourname>rakuten
+Deploy your spring boot app in aws and provide the link.

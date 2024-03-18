@@ -21,12 +21,22 @@ public class LoginTest {
 		driver.get("https://www.saucedemo.com/");
 	}
 
-	@When("user enters username and password")
-	public void user_enters_username_and_password() {
-		driver.findElement(By.xpath("//*[@id=\"user-name\"]")).sendKeys("standard_user");
-		driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("1secret_sauce");
+	//@When("user enters username and password")
+	@When("^user enters (.*) and (.*)$")
+	public void user_enters_username_and_password(String username, String password) {
+	//	driver.findElement(By.xpath("//*[@id=\"user-name\"]")).sendKeys("standard_user");
+	//	driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("secret_sauce");
+		driver.findElement(By.xpath("//*[@id=\"user-name\"]")).sendKeys(username);
+		driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys(password);
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
 	@When("clicks on login button")
 	public void clicks_on_login_button() {
 		driver.findElement(By.xpath("//*[@id=\"login-button\"]")).click();
