@@ -3500,3 +3500,159 @@ Create a spring boot  application : port : 9876 with the following mappings
 /hello
 Hi and welcome to <yourname> spring app deployed on aws ububntu machine <yourname>rakuten
 Deploy your spring boot app in aws and provide the link.
+
+
+ java -Dserver.port=9876 -jar spring-boot-aws-demo.jar
+
+
+========================
+
+Use case : We have to host spring boot product app 
+
+Requires a DB. postgres
+
+
+postgres
+username : postgres
+
+
+================Deploying react app
+
+Step 1: npm run build
+Step 2: login in aws and create bucket -- make it public
+Step 3: Upload all the files from build folder to your bucket
+Step 4: Bucket --> Properties --> scroll down to the last --> Static website hosting  --> Enable it 
+
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1568691946888",
+    "Statement": [
+        {
+            "Sid": "Stmt1568691936002",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::buckettufail/*"
+        }
+    ]
+}
+
+==============================================================
+
+
+React JS
+Java Networking
+AWS
+
+
+
+
+Create a react app to display a button and change its text 
+
+Click Me
+
+Clicked
+
+
+================================================================
+
+Lifecycle
+
+
+
+Forms
+
+
+Boostrap
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+Delete functionality
+
+===============
+
+Service
+
+    deleteProduct(productId) {
+        return axios.delete(`${PRODUCT_API_URL}/${productId}`);
+    }
+
+
+ProductComponent
+
+    deleteProductClicked(productId) {
+        ProductService.deleteProduct(productId)
+            .then(
+                response => {
+                    this.setState({ message: `Delete of product ${productId} Successful` })
+                    this.refreshProducts()
+                }
+            )
+    }
+
+
+....
+....
+
+ <td>{product.price}</td>
+ <td><button className="btn btn-warning"
+                                                onClick={() => this.deleteProductClicked(product.productId)}>
+                                                Delete</button>
+                                            </td>
+
+......
+ 		 <div className="container">
+              {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
+                   		 <h3>All Products</h3>
+
+
+
+==================
+Routing Steps
+
+
+App.js
+
+import logo from './logo.svg';
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import ProductComponent from './components/ProductComponent'
+import  Customer  from './customer'
+function App() {
+  return (
+    <Router>
+    <>	
+      <h1>Product Application</h1>
+      <Routes>
+        <Route path="/" element={<ProductComponent />}></Route>
+        <Route path="/products" element={<ProductComponent />}/>
+        <Route path="/customers" element={< Customer />}/>
+        <Route path="/products/:productId" element={<ProductComponent />}/>
+
+      </Routes>
+    </>
+  </Router>
+
+  );
+}
+
+export default App;
+
+
+index.js
+import ReactDOM from 'react-dom';
+import React from 'react'
+import App from './App';
+ReactDOM.render(<App></App>,document.getElementById("root"))
+
+
+
+
+==============================================================
+
+
+
+
+

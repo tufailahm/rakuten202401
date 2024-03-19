@@ -20,9 +20,9 @@ import com.training.pms.dao.ProductDAO;
 import com.training.pms.model.Product;
 import com.training.pms.services.ProductService;
 
+@CrossOrigin(origins = { "http://localhost:3000", "http://localhost:4200" })
 @RestController
 @RequestMapping("product")
-@CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
 
 	@Autowired
@@ -45,7 +45,6 @@ public class ProductController {
 			}
 		} else {
 			responseEntity = new ResponseEntity<String>("Product already exists ", HttpStatus.CONFLICT);
-
 		}
 		return responseEntity;
 	}
