@@ -24,7 +24,7 @@ import com.training.pms.services.ProductService;
 @RestController
 @RequestMapping("product")
 public class ProductController {
-
+	
 	@Autowired
 	ProductService productService;
 
